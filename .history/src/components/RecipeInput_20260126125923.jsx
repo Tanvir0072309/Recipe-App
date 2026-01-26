@@ -3,6 +3,7 @@ import "../index.css";
 import React from "react";
 
 export function RecipeInput({ onAdd }) {
+    const [result, setResult] = React.useState("false");
     const [text, setText] = useState("");
     const inputRef = useRef(null);
 
@@ -17,7 +18,9 @@ export function RecipeInput({ onAdd }) {
         inputRef.current.focus(); // ✅ cursor back
     };
 
-    
+    function handleChange() {
+        setResult(prev => !prev);
+    }
 
     return (
         <form onSubmit={handleSubmit}>
@@ -29,7 +32,7 @@ export function RecipeInput({ onAdd }) {
                     onChange={(e) => setText(e.target.value)}
                     autoFocus
                 />
-                <button type="submit" aria-label="submit">
+                <button onClick={handleChange} type="submit" aria-label="submit">
                     {/* FIXED ICON */}
                     <svg
                         width="18"

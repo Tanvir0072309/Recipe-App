@@ -29,7 +29,7 @@ export function RecipeInput({ onAdd }) {
                     onChange={(e) => setText(e.target.value)}
                     autoFocus
                 />
-                <button type="submit" aria-label="submit">
+                <button onClick={handleChange} type="submit" aria-label="submit">
                     {/* FIXED ICON */}
                     <svg
                         width="18"
