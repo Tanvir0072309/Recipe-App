@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { RecipeInput } from "./RecipeInput";
-import React from "react";
 
 export default function Main() {
     const [items, setItems] = useState([]);
-
+    const {}
 
     const addItem = (value) => {
         setItems((prev) => [...prev, value]);

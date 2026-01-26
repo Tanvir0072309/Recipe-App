@@ -1,9 +1,9 @@
 import { useState, useRef } from "react";
 import "../index.css";
-import React from "react";
+import React from "react";  
 
 export function RecipeInput({ onAdd }) {
-    const [result, setResult] = React.useState("false");
+    const [result = React.useState("OK");
     const [text, setText] = useState("");
     const inputRef = useRef(null);
 
@@ -18,10 +18,6 @@ export function RecipeInput({ onAdd }) {
         inputRef.current.focus(); // ✅ cursor back
     };
 
-    function handleChange() {
-        setResult(prev => !prev);
-    }
-
     return (
         <form onSubmit={handleSubmit}>
             <div className="floating-input">
@@ -32,8 +28,8 @@ export function RecipeInput({ onAdd }) {
                     onChange={(e) => setText(e.target.value)}
                     autoFocus
                 />
-                <h1>{result ? "Yes" : "No"}</h1>
-                <button onClick={handleChange} type="submit" aria-label="submit">
+                <h1>{result}</h1>
+                <button type="submit" aria-label="submit">
                     {/* FIXED ICON */}
                     <svg
                         width="18"

@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Main() {
     const [items, setItems] = useState([]);
-
+    const result = React.useState("OK");
 
     const addItem = (value) => {
         setItems((prev) => [...prev, value]);
