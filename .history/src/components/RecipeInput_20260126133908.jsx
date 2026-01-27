@@ -21,7 +21,7 @@ export function RecipeInput({ onAdd }) {
     const FaviourateArray = ["🙌😭", "😘💕", "😍❤️", "🤦‍♀️😂", "🤦‍♂️🤣", "😋🥲", "😙🥰", "😘😗"]
     function testFunction() {
 
-        setaddFavoriteThing(prevfavThings => [...prevfavThings,FaviourateArray[prevfavThings.length]]);
+        setaddFavoriteThing(prevfavThings => [...prevfavThings,[a]]);
     }
 
     

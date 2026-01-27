@@ -4,6 +4,8 @@ import { RecipeInput } from "./RecipeInput";
 export default function Main() {
     const [items, setItems] = useState([]);
     
+
+
     const addItem = (value) => {
         setItems((prev) => [...prev, value]);
     };

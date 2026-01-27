@@ -18,10 +18,10 @@ export function RecipeInput({ onAdd }) {
     };
 
     const [addFavoriteThing, setaddFavoriteThing] = useState([]);
-    const FaviourateArray = ["🙌😭", "😘💕", "😍❤️", "🤦‍♀️😂", "🤦‍♂️🤣", "😋🥲", "😙🥰", "😘😗"]
+    
     function testFunction() {
 
-        setaddFavoriteThing(prevfavThings => [...prevfavThings,FaviourateArray[prevfavThings.length]]);
+        setaddFavoriteThing(prevfavThings => [...prevfavThings, "Test "]);
     }
 
     

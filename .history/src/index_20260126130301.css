@@ -151,7 +151,6 @@ body {
 
 /* index.css mein check karein */
 ul {
-  list-style: disc;
   margin: 20px;
   color: black;
   /* Ensure text color is visible */
@@ -159,4 +158,5 @@ ul {
 
 li {
   padding: 10px;
+  border-bottom: 1px solid #eee;
 }

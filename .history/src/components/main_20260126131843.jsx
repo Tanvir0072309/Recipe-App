@@ -15,6 +15,7 @@ export default function Main() {
                     {items.map((item, i) => (
                         <li key={i}>{item}</li>
                     ))}
+                    <li>{addFavoriteThing}</li>
                 </ul>
             </div>
 

@@ -18,10 +18,10 @@ export function RecipeInput({ onAdd }) {
     };
 
     const [addFavoriteThing, setaddFavoriteThing] = useState([]);
-    const FaviourateArray = ["🙌😭", "😘💕", "😍❤️", "🤦‍♀️😂", "🤦‍♂️🤣", "😋🥲", "😙🥰", "😘😗"]
+
     function testFunction() {
 
-        setaddFavoriteThing(prevfavThings => [...prevfavThings,FaviourateArray[prevfavThings.length]]);
+        setaddFavoriteThing(prevfavThings => [...prevfavThings, "Test"]);
     }
 
     
@@ -29,7 +29,7 @@ export function RecipeInput({ onAdd }) {
     return (
         <form onSubmit={handleSubmit} >
             <div className="floating-input">
-                <input onClick={testFunction}
+                <input oncl
                     ref={inputRef}
                     type="text"
                     value={text}
@@ -37,7 +37,7 @@ export function RecipeInput({ onAdd }) {
                     autoFocus
                 />
                 <h1>{addFavoriteThing}</h1>
-                <button type="submit" aria-label="submit" onClick={testFunction}>
+                <button type="submit" aria-label="submit">
                     {/* FIXED ICON */}
                     <svg
                         width="18"

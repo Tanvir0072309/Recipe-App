@@ -3,7 +3,9 @@ import { RecipeInput } from "./RecipeInput";
 
 export default function Main() {
     const [items, setItems] = useState([]);
-    
+    const [addFavoriteThing, setaddFavoriteThing] = useState([]);
+
+    setaddFavoriteThing(prevfavThings => [...prevfavThings, "Test"]);
     const addItem = (value) => {
         setItems((prev) => [...prev, value]);
     };
@@ -14,6 +16,7 @@ export default function Main() {
                 <ul>
                     {items.map((item, i) => (
                         <li key={i}>{item}</li>
+                        
                     ))}
                 </ul>
             </div>
