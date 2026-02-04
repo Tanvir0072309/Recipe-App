@@ -1,5 +1,4 @@
 import React from "react";
-import "./RecipeCTA.css";
 
 export function RecipeCTA() {
     return (

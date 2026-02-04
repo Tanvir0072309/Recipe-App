@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { RecipeInput } from "./RecipeInput";
 import React from "react";
-import { RecipeCTA } from "./RecipeCTA";
 
 
 export default function Main() {
@@ -13,14 +12,18 @@ export default function Main() {
 
     return (
         <>
+
+            {items.length > 0 && <h3>List of Ingredients ({items.length})</h3>}
             <div style={{ paddingBottom: "120px" }}>
                 <ul>
                     {items.map((item, i) => (
                         <li key={i}>{item}</li>
+
                     ))}
+
                 </ul>
             </div>
-            <RecipeCTA />
+
             <RecipeInput onAdd={addItem} />
         </>
     );

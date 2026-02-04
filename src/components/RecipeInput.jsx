@@ -1,9 +1,11 @@
 import { useState, useRef } from "react";
 import "../index.css";
 import React from "react";
+import { RecipeCTA } from "./RecipeCTA";
 
 export function RecipeInput({ onAdd }) {
     const [text, setText] = useState("");
+    const [n, setN] = useState("");
     const inputRef = useRef(null);
 
     const handleSubmit = (e) => {
@@ -17,6 +19,8 @@ export function RecipeInput({ onAdd }) {
     };
 
     return (
+        <>
+        {n && <RecipeCTA />}
         <form onSubmit={handleSubmit}>
             <div className="floating-input">
                 <input
@@ -27,7 +31,7 @@ export function RecipeInput({ onAdd }) {
                     autoFocus
                 />
 
-                <button type="submit" aria-label="submit">
+                <button type="submit" aria-label="submit" onClick={() => setN(n + 1)}>
                     <svg
                         width="18"
                         height="18"
@@ -38,6 +42,7 @@ export function RecipeInput({ onAdd }) {
                     </svg>
                 </button>
             </div>
-        </form>
-    );
+            </form>
+            </>
+            );
 }
