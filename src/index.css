@@ -160,3 +160,52 @@ ul {
 li {
   padding: 10px;
 }
+
+.recipe-cta {
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 24px 32px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: linear-gradient(135deg, #fff7ed, #ffedd5);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.recipe-cta-text h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #1f2933;
+}
+
+.recipe-cta-text p {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #6b7280;
+  max-width: 420px;
+}
+
+.recipe-cta-btn button {
+  padding: 12px 26px;
+  font-size: 15px;
+  font-weight: 500;
+
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+
+  background-color: #f97316;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.recipe-cta-btn button:hover {
+  background-color: #ea580c;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(249, 115, 22, 0.4);
+}

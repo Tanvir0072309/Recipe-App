@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { RecipeInput } from "./RecipeInput";
 import React from "react";
-import { Data } from "./data.jsx";
-import { Datafatched } from "./datafatched.jsx";
+import { RecipeCTA } from "./RecipeCTA";
 
 
 export default function Main() {
@@ -21,9 +20,7 @@ export default function Main() {
                     ))}
                 </ul>
             </div>
-            <Datafatched data={Data} />
-
-
+            <RecipeCTA />
             <RecipeInput onAdd={addItem} />
         </>
     );

@@ -6,26 +6,18 @@ export function RecipeInput({ onAdd }) {
     const [text, setText] = useState("");
     const inputRef = useRef(null);
 
-
-
     const handleSubmit = (e) => {
         e.preventDefault();
 
         if (text.trim() === "") return;
 
-        onAdd(text);     // ✅ array me ja raha
-        setText("");     // ✅ input clear
-
-        inputRef.current.focus(); // ✅ cursor back
+        onAdd(text);
+        setText("");
+        inputRef.current.focus();
     };
 
-
-    function testFunction() {
-    }
-
-
     return (
-        <form onSubmit={handleSubmit} >
+        <form onSubmit={handleSubmit}>
             <div className="floating-input">
                 <input
                     ref={inputRef}
@@ -35,8 +27,7 @@ export function RecipeInput({ onAdd }) {
                     autoFocus
                 />
 
-                <button type="submit" aria-label="submit" onclick={setpermi => !setpermi} onClick={testFunction}>
-                    {/* FIXED ICON */}
+                <button type="submit" aria-label="submit">
                     <svg
                         width="18"
                         height="18"
