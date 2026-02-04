@@ -4,10 +4,8 @@ import React from "react";
 
 export function RecipeInput({ onAdd }) {
     const [text, setText] = useState("");
-    const [permi,setpermi] = useState(false)
     const inputRef = useRef(null);
-    const [faltu, setfaltu] = useState([])
-    
+
 
 
     const handleSubmit = (e) => {
@@ -20,27 +18,24 @@ export function RecipeInput({ onAdd }) {
 
         inputRef.current.focus(); // ✅ cursor back
     };
-    
-    const things = ["Tests","teat2","test3","test4"]
+
+
     function testFunction() {
-        setpermi(prev => !prev)
-        setfaltu(prev => [...prev, things[prev.length]])
     }
-    
+
 
     return (
         <form onSubmit={handleSubmit} >
             <div className="floating-input">
-                <input 
+                <input
                     ref={inputRef}
                     type="text"
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                     autoFocus
                 />
-                <h1>{faltu}</h1>
-                {permi === true && <h1> "Hello" </h1>}
-                <button type="submit" aria-label="submit" onclick ={setpermi => !setpermi} onClick={testFunction}>
+
+                <button type="submit" aria-label="submit" onclick={setpermi => !setpermi} onClick={testFunction}>
                     {/* FIXED ICON */}
                     <svg
                         width="18"

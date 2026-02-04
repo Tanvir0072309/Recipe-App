@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { RecipeInput } from "./RecipeInput";
+import React from "react";
+import { Data } from "./data.jsx";
+import { Datafatched } from "./datafatched.jsx";
+
 
 export default function Main() {
     const [items, setItems] = useState([]);
-    
+
     const addItem = (value) => {
         setItems((prev) => [...prev, value]);
     };
@@ -17,6 +21,8 @@ export default function Main() {
                     ))}
                 </ul>
             </div>
+            <Datafatched data={Data} />
+
 
             <RecipeInput onAdd={addItem} />
         </>
