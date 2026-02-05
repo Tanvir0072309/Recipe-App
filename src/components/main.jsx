@@ -2,26 +2,17 @@ import { useState } from "react";
 import { RecipeInput } from "./RecipeInput";
 import { RecipeCTA } from "./RecipeCTA";
 import { getRecipeFromAI } from "../ai/aiService";
-import ReactMarkdown from "react-markdown";
-import html2canvas from "html2canvas";
-
-
 
 export default function Main() {
     const [items, setItems] = useState([]);
     const [recipe, setRecipe] = useState("");
     const [loading, setLoading] = useState(false);
 
-    // add ingredient from input
     const addItem = (value) => {
         setItems((prev) => [...prev, value]);
     };
 
-    // call backend → AI
     const handleGetRecipe = async () => {
-        console.log("GET RECIPE CLICKED");
-        console.log("INGREDIENTS ARRAY:", items);
-
         if (items.length === 0) return;
 
         setLoading(true);
@@ -29,108 +20,65 @@ export default function Main() {
 
         try {
             const data = await getRecipeFromAI(items);
-            console.log("API RESPONSE:", data);
 
             if (data && data.text) {
                 setRecipe(data.text.replace(/\*\*/g, ""));
-;
             } else {
                 setRecipe("❌ No recipe received from AI");
             }
         } catch (err) {
-            console.error("FRONTEND ERROR:", err);
             setRecipe("❌ Failed to get recipe");
         }
 
         setLoading(false);
     };
 
-
-
-    const handleScrollAndScreenshot = async () => {
-        try {
-            // UX ke liye scroll (optional)
-            window.scrollTo({
-                top: document.documentElement.scrollHeight,
-                behavior: "smooth",
-            });
-
-            await new Promise((r) => setTimeout(r, 600));
-
-            // 🎯 ONLY MAIN CONTENT
-            const element = document.getElementById("main-content");
-
-            const canvas = await html2canvas(element, {
-                scale: 2,
-                useCORS: true,
-                backgroundColor: "#ffffff",
-            });
-
-            const image = canvas.toDataURL("image/png");
-            const link = document.createElement("a");
-            link.href = image;
-            link.download = "recipe.png";
-            link.click();
-        } catch (err) {
-            console.error("Screenshot error:", err);
-        }
+    // 🔥 यही MAIN CANCEL LOGIC
+    const handleCancelRecipe = () => {
+        setItems([]);     // ingredients clear
+        setRecipe("");    // recipe clear
+        setLoading(false);
     };
 
-
+    // optional: import logic
+    const handleImportRecipe = async () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        await new Promise(r => setTimeout(r, 400));
+        window.print(); // screenshot / save
+    };
 
     return (
-        <div
-            id="main-content"   // 👈 ADD THIS
-            style={{
-                padding: "20px",
-                maxWidth: "600px",
-                margin: "0px auto 100px",
-                paddingBottom: "160px",
-            }}
-        >
-
-
-            <h2>AI Recipe Generator 🍳</h2>
-
-            {/* Ingredient list */}
+        <>
             {items.length > 0 && (
-                <>
-                    <h3>List of Ingredients ({items.length})</h3>
-                    <ul>
-                        {items.map((item, index) => (
-                            <li key={index}>{item}</li>
-                        ))}
-                    </ul>
-                </>
+                <h3>List of Ingredients ({items.length})</h3>
             )}
 
-            {/* Get Recipe button */}
-            {items.length >= 2 && (
+            <ul>
+                {items.map((item, i) => (
+                    <li key={i}>{item}</li>
+                ))}
+            </ul>
+
+            {items.length >= 4 && (
                 <RecipeCTA
                     onGetRecipe={handleGetRecipe}
-                    onCancelRecipe={() => setRecipe("")}
-                    onImportRecipe={handleScrollAndScreenshot}
+                    onCancelRecipe={handleCancelRecipe}
+                    onImportRecipe={handleImportRecipe}
                     loading={loading}
                     hasRecipe={!!recipe}
                 />
-
-
-
             )}
 
-            {/* Recipe output */}
             {recipe && (
-                <div style={{ marginTop: "30px" }}>
+                <div style={{ marginTop: "40px" }}>
                     <h3>Your Recipe 🍲</h3>
-                    <ReactMarkdown>
+                    <pre style={{ whiteSpace: "pre-wrap" }}>
                         {recipe}
-                    </ReactMarkdown>
-
+                    </pre>
                 </div>
             )}
 
-            {/* Input box */}
             <RecipeInput onAdd={addItem} />
-        </div>
+        </>
     );
 }
