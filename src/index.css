@@ -276,3 +276,61 @@ li {
   opacity: 0.4;
   filter: grayscale(100%);
 }
+
+.recipe-cta-btn {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  /* 👈 important */
+}
+
+/* Common button style */
+.recipe-cta-btn button {
+  height: 48px;
+  /* 👈 SAME HEIGHT */
+  min-width: 140px;
+  /* optional, clean look */
+  padding: 0 18px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+
+  display: flex;
+  /* center text perfectly */
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🟢 Get Recipe – modern green */
+.btn-get {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+}
+
+/* 🔴 Cancel – modern red */
+.btn-cancel {
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  color: white;
+}
+
+/* 🔵 Import – modern blue */
+.btn-import {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+}
+
+.recipe-cta-btn button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.recipe-cta-btn button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}

@@ -1,4 +1,10 @@
-export function RecipeCTA({ onGetRecipe, loading }) {
+export function RecipeCTA({
+    onGetRecipe,
+    onCancelRecipe,
+    onImportRecipe,
+    loading,
+    hasRecipe // 👈 NEW PROP
+}) {
     return (
         <section className="recipe-cta">
             <div className="recipe-cta-text">
@@ -7,9 +13,33 @@ export function RecipeCTA({ onGetRecipe, loading }) {
             </div>
 
             <div className="recipe-cta-btn">
-                <button onClick={onGetRecipe} disabled={loading}>
+                {/* Get Recipe – always visible */}
+                <button
+                    className="btn-get"
+                    onClick={onGetRecipe}
+                    disabled={loading}
+                >
                     {loading ? "Cooking..." : "Get Recipe"}
                 </button>
+
+                {/* 👇 Ye dono tabhi dikhen jab recipe aa chuki ho */}
+                {hasRecipe && (
+                    <>
+                        <button
+                            className="btn-cancel"
+                            onClick={onCancelRecipe}
+                        >
+                            Cancel Recipe
+                        </button>
+
+                        <button
+                            className="btn-import"
+                            onClick={onImportRecipe}
+                        >
+                            Import Recipe
+                        </button>
+                    </>
+                )}
             </div>
         </section>
     );
