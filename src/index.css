@@ -14,66 +14,71 @@ body {
   background: #fafaf8;
   color: #111111;
   min-height: 100vh;
+
+  /* Header + floating elements ke liye space */
   padding-top: 80px;
-  /* Text ke niche space taaki floating input ke upar rahe */
-  padding-bottom: 160px; 
+  padding-bottom: 180px;
 }
 
 /* ===== HEADER ===== */
 .ai-header {
-  height: 64px;
-  width: 100%;
-  background: #ffffff;
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 64px;
+
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
   z-index: 100;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  border-bottom: 1px solid #e5e7eb;
 }
 
 .app-title {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
 
-/* ===== MAIN CONTENT PADDING/MARGIN ===== */
+/* ===== MAIN CONTENT SPACING ===== */
 h3 {
-  margin: 32px 24px 12px 24px; /* Top, Right, Bottom, Left */
-  color: #000000;
+  margin: 32px 24px 12px;
+  color: #000;
 }
 
 ul {
   list-style: disc;
-  margin: 0 24px 30px 44px; /* Left margin bullets ke liye extra hai */
-  color: #111111;
+  margin: 0 24px 28px 44px;
+  color: #111;
 }
 
 li {
-  padding: 8px 0;
+  padding: 6px 0;
 }
 
-/* ===== RECIPE CTA (FLOATING CARD) ===== */
+/* ===== RECIPE CTA ===== */
 .recipe-cta {
   position: fixed;
-  bottom: 100px;
+  bottom: 96px;
   left: 50%;
   transform: translateX(-50%);
+
   width: min(94%, 900px);
   padding: 20px 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
+
   background: linear-gradient(135deg, #fff7ed, #ffedd5);
   border-radius: 16px;
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.15);
   z-index: 90;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
 
 .recipe-cta-text h2 {
@@ -83,39 +88,61 @@ li {
 }
 
 .recipe-cta-text p {
-  margin-top: 4px;
+  margin-top: 6px;
   font-size: 13px;
   color: #6b7280;
-  max-width: 400px;
+  max-width: 420px;
 }
 
-/* ===== CTA BUTTONS ===== */
+/* ===== CTA BUTTONS (ALWAYS SIDE BY SIDE) ===== */
 .recipe-cta-btn {
   display: flex;
   gap: 12px;
+  align-items: center;
+  justify-content: center;
 }
 
 .recipe-cta-btn button {
   height: 46px;
   min-width: 120px;
-  padding: 0 16px;
+  padding: 0 18px;
+
   border-radius: 10px;
   border: none;
   font-weight: 600;
   cursor: pointer;
-  transition: 0.25s ease;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  transition: all 0.25s ease;
 }
 
-.btn-get { background: linear-gradient(135deg, #22c55e, #16a34a); color: white; }
-.btn-cancel { background: linear-gradient(135deg, #ef4444, #b91c1c); color: white; }
-.btn-import { background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: white; }
+/* Button colors */
+.btn-get {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+}
+
+.btn-cancel {
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  color: white;
+}
+
+.btn-import {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+}
 
 .recipe-cta-btn button:hover:not(:disabled) {
   transform: translateY(-2px);
-  filter: brightness(1.1);
+  filter: brightness(1.05);
+}
+
+.recipe-cta-btn button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 /* ===== FLOATING INPUT ===== */
@@ -124,14 +151,18 @@ li {
   bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
+
   width: min(92%, 560px);
   height: 56px;
+
   background: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 999px;
+
   display: flex;
   align-items: center;
   padding: 0 10px 0 18px;
+
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
   z-index: 100;
 }
@@ -149,34 +180,35 @@ li {
   height: 42px;
   border-radius: 50%;
   border: none;
-  background: #000000;
-  color: white;
+
+  background: #000;
+  color: #fff;
   cursor: pointer;
 }
 
-/* ===== MOBILE RESPONSIVE (430px & below) ===== */
+/* ===== MOBILE TWEAKS ===== */
 @media (max-width: 768px) {
   .recipe-cta {
     flex-direction: column;
     text-align: center;
-    bottom: 95px;
+  }
+
+  /* 🔥 buttons paas-paas hi rahenge */
+  .recipe-cta-btn {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 
 @media (max-width: 430px) {
-  h3, ul {
+  h3 {
     margin-left: 16px;
     margin-right: 16px;
   }
 
-  .recipe-cta-btn {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .recipe-cta-btn button {
-    width: 100%;
-    height: 44px;
+  ul {
+    margin-left: 32px;
+    margin-right: 16px;
   }
 
   .app-title {
