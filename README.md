@@ -1,16 +1,52 @@
-# React + Vite
+# 🍳 AI Recipe Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AI Recipe Generator is a modern full-stack web application that creates step-by-step cooking recipes using artificial intelligence.  
+Users simply enter ingredients, and the app instantly generates a complete recipe with a clean and user-friendly interface.
 
-Currently, two official plugins are available:
+This project focuses on real-world frontend + backend integration, clean UI/UX, and practical AI usage.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+- 📝 Add ingredients dynamically
+- 🤖 Generate AI-powered recipes
+- ⏳ Loading state while recipe is being prepared
+- ❌ Cancel last generated recipe
+- 📸 One-click recipe screenshot export (gallery/download)
+- 🎨 Modern, responsive UI
+- 🔐 Secure API handling via backend
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠 Tech Stack
+
+### Frontend
+- React (Vite)
+- JavaScript (ES6+)
+- CSS (modern styling)
+- html2canvas (for screenshots)
+
+### Backend
+- Node.js
+- Express.js
+- Groq AI API (LLM)
+- REST API architecture
+
+---
+
+## 📂 Project Structure
+
+src/
+├── ai/
+│ └── aiService.js
+├── components/
+│ ├── Main.jsx
+│ ├── RecipeInput.jsx
+│ └── RecipeCTA.jsx
+└── main.jsx
+
+server/
+├── index.js
+├── package.json
+└── .env
