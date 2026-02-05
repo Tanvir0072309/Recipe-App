@@ -18,7 +18,7 @@ export function RecipeCTA({
                     onClick={onGetRecipe}
                     disabled={loading}
                 >
-                    {loading ? "Cooking..." : "Get Recipe"}
+                    {loading ? "Cooking..." : "Get"}
                 </button>
 
                 {hasRecipe && (
@@ -27,14 +27,14 @@ export function RecipeCTA({
                             className="btn-cancel"
                             onClick={onCancelRecipe}
                         >
-                            Cancel Recipe
+                            Cancel
                         </button>
 
                         <button
                             className="btn-import"
                             onClick={onImportRecipe}
                         >
-                            Import Recipe
+                            Import
                         </button>
                     </>
                 )}
