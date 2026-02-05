@@ -3,7 +3,7 @@ export function RecipeCTA({
     onCancelRecipe,
     onImportRecipe,
     loading,
-    hasRecipe // 👈 NEW PROP
+    hasRecipe
 }) {
     return (
         <section className="recipe-cta">
@@ -13,7 +13,6 @@ export function RecipeCTA({
             </div>
 
             <div className="recipe-cta-btn">
-                {/* Get Recipe – always visible */}
                 <button
                     className="btn-get"
                     onClick={onGetRecipe}
@@ -22,7 +21,6 @@ export function RecipeCTA({
                     {loading ? "Cooking..." : "Get Recipe"}
                 </button>
 
-                {/* 👇 Ye dono tabhi dikhen jab recipe aa chuki ho */}
                 {hasRecipe && (
                     <>
                         <button
