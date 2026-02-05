@@ -5,6 +5,7 @@ import { RecipeInput } from "./components/RecipeInput";
 import "./index.css";
 import MyMain from "./components/main";
 
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(

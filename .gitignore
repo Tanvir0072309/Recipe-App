@@ -18,7 +18,15 @@ dist-ssr
 .idea
 .DS_Store
 *.suo
-*.ntvs*
-*.njsproj
 *.sln
 *.sw?
+
+# environment files
+
+.env.local
+.env.*.local
+
+node_modules
+.env
+.env.*
+

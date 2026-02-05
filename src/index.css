@@ -238,3 +238,41 @@ li {
     width: 100%;
   }
 }
+
+
+
+
+
+
+.pad-container {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 15px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.pad {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* ON */
+.pad.on {
+  opacity: 1;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+/* OFF */
+.pad.off {
+  opacity: 0.4;
+  filter: grayscale(100%);
+}
