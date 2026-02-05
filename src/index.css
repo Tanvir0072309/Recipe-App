@@ -9,16 +9,14 @@
   font-family: "Inter", system-ui, sans-serif;
 }
 
-
 /* ===== PAGE ===== */
 body {
   background: #fafaf8;
   color: #111111;
   min-height: 100vh;
-   padding-top: 64px;
+  padding-top: 80px; /* Header ke liye space */
+  padding-bottom: 180px; /* Floating input aur CTA ke liye space */
 }
-
-
 
 /* ===== HEADER ===== */
 .ai-header {
@@ -36,11 +34,6 @@ body {
   border-bottom: 1px solid #e5e7eb;
 }
 
-.logo-icon {
-  font-size: 20px;
-  opacity: 0.85;
-}
-
 .app-title {
   font-size: 22px;
   font-weight: 600;
@@ -48,161 +41,45 @@ body {
   text-transform: uppercase;
 }
 
-/* ===== FLOATING INPUT ===== */
-.floating-input {
-  position: fixed;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-
-  width: min(92%, 560px);
-  height: 56px;
-
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 999px;
-
-  display: flex;
-  align-items: center;
-  padding: 8px 10px 8px 18px;
-
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-}
-
-/* ===== INPUT ===== */
-.floating-input input {
-  flex: 1;
-  border: none;
-  outline: none;
-  font-size: 15px;
-  background: transparent;
-  color: #111111;
-}
-
-/* ===== BUTTON ===== */
-.floating-input button {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: none;
-
-  background: #000000;
-  color: #ffffff;
-  font-size: 18px;
-
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.floating-input button:hover {
-  opacity: 0.9;
-}
-
-/* ===== RECIPE LIST ===== */
-/* ===== FLOATING INPUT ===== */
-.floating-input {
-  position: fixed;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-
-  width: min(92%, 560px);
-  height: 56px;
-
-  background: #ffffff;
-  border-radius: 999px;
-
-  display: flex;
-  align-items: center;
-  padding: 8px 10px 8px 18px;
-
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
-}
-
-/* ===== INPUT (CURSOR ONLY) ===== */
-.floating-input input {
-  flex: 1;
-  border: none;
-  outline: none;
-  background: transparent;
-
-  font-size: 15px;
-  color: #111111;
-  caret-color: #000000;
-  /* 👈 cursor line */
-}
-
-/* remove default focus styles */
-.floating-input input:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-/* ===== BUTTON ===== */
-.floating-input button {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: none;
-
-  background: #000000;
-  cursor: pointer;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
+/* ===== MAIN CONTENT (MARGINS ADDED) ===== */
 h3 {
-  margin-left: 20px;
-  margin-top: 30px;
-  margin-bottom: 10px;
-  color: black;
-  margin: 32px 20px 12px;
+  margin: 32px 24px 12px 24px; /* Top, Right, Bottom, Left */
+  color: #000000;
+  font-size: 1.2rem;
+}
+
 ul {
   list-style: disc;
-  margin: 20px;
-  color: black;
-   margin: 0 24px 24px;
-  padding-left: 18px;
+  margin: 0 24px 24px 44px; /* Left margin zyada rakha hai bullet points ke liye */
+  color: #111111;
 }
 
 li {
-  padding: 10px;
-  margin-left: 25px;
-  margin-top: -16px;
-
+  padding: 8px 0;
+  line-height: 1.5;
 }
 
+/* ===== RECIPE CTA CARD ===== */
 .recipe-cta {
   position: fixed;
-  bottom: 96px;
-  /* 👈 floating-input se upar */
+  bottom: 100px;
   left: 50%;
   transform: translateX(-50%);
-
   width: min(92%, 900px);
   padding: 20px 24px;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-
   background: linear-gradient(135deg, #fff7ed, #ffedd5);
   border-radius: 16px;
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.15);
-
   z-index: 10;
-  /* 👈 input ke upar rahe */
 }
 
-/* TEXT */
 .recipe-cta-text h2 {
   margin: 0;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 600;
   color: #1f2933;
 }
@@ -214,17 +91,91 @@ li {
   max-width: 420px;
 }
 
+/* ===== CTA BUTTONS ===== */
+.recipe-cta-btn {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: nowrap;
+}
 
+.recipe-cta-btn button {
+  height: 48px;
+  min-width: 120px;
+  padding: 0 18px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.btn-get { background: linear-gradient(135deg, #22c55e, #16a34a); color: white; }
+.btn-cancel { background: linear-gradient(135deg, #ef4444, #b91c1c); color: white; }
+.btn-import { background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: white; }
 
+.recipe-cta-btn button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
 
+.recipe-cta-btn button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
 
+/* ===== FLOATING INPUT ===== */
+.floating-input {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(92%, 560px);
+  height: 56px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  padding: 8px 10px 8px 18px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.floating-input input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  background: transparent;
+  color: #111111;
+  caret-color: #000000;
+}
+
+.floating-input button {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: #000000;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== PAD CONTAINER (GRID) ===== */
 .pad-container {
   display: grid;
   grid-template-columns: repeat(3, 100px);
   gap: 15px;
   justify-content: center;
-  margin-top: 40px;
+  margin: 40px auto;
 }
 
 .pad {
@@ -240,88 +191,30 @@ li {
   transition: 0.3s ease;
 }
 
-/* ON */
-.pad.on {
-  opacity: 1;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+.pad.on { opacity: 1; box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); }
+.pad.off { opacity: 0.4; filter: grayscale(100%); }
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .recipe-cta {
+    flex-direction: column;
+    text-align: center;
+    bottom: 90px;
+  }
+  
+  .recipe-cta-text p {
+    max-width: 100%;
+  }
 }
 
-/* OFF */
-.pad.off {
-  opacity: 0.4;
-  filter: grayscale(100%);
-}
-
-.recipe-cta-btn {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
-  /* 👈 important */
-}
-
-/* Common button style */
-.recipe-cta-btn button {
-  height: 48px;
-  /* 👈 SAME HEIGHT */
-  min-width: 140px;
-  /* optional, clean look */
-  padding: 0 18px;
-  border-radius: 10px;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-
-  display: flex;
-  /* center text perfectly */
-  align-items: center;
-  justify-content: center;
-}
-
-/* 🟢 Get Recipe – modern green */
-.btn-get {
-  background: linear-gradient(135deg, #22c55e, #16a34a);
-  color: white;
-}
-
-/* 🔴 Cancel – modern red */
-.btn-cancel {
-  background: linear-gradient(135deg, #ef4444, #b91c1c);
-  color: white;
-}
-
-/* 🔵 Import – modern blue */
-.btn-import {
-  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-  color: white;
-}
-
-.recipe-cta-btn button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-.recipe-cta-btn {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-}
-
-/* 📱 Mobile fix */
 @media (max-width: 480px) {
   .recipe-cta-btn {
-    flex-wrap: wrap;   /* 👈 allow wrap */
+    flex-wrap: wrap;
+    width: 100%;
   }
 
   .recipe-cta-btn button {
-    flex: 1 1 100%;   /* 👈 full width buttons */
+    flex: 1 1 100%;
     min-width: 100%;
   }
-}
-.recipe-cta-btn button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  transform: none;
 }
