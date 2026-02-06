@@ -246,3 +246,8 @@ li {
   font-size: 15px;
   line-height: 1.5;
 }
+@media (max-width: 430px) {
+  .ingredients-box {
+    padding: 0 16px;
+  }
+}
