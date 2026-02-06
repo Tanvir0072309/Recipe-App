@@ -9,28 +9,32 @@ export default function Main() {
     const [loading, setLoading] = useState(false);
 
     // 🔥 KEYBOARD AWARE FLOATING INPUT
-    useEffect(() => {
-      const updateKeyboardOffset = () => {
-        if (!window.visualViewport) return;
+   useEffect(() => {
+  const updateKeyboardOffset = () => {
+    if (!window.visualViewport) return;
 
-        const keyboardHeight =
-          window.innerHeight - window.visualViewport.height;
+    const viewport = window.visualViewport;
+    const keyboardHeight =
+      window.innerHeight - viewport.height - viewport.offsetTop;
 
-        document.documentElement.style.setProperty(
-          "--keyboard-offset",
-          keyboardHeight > 0 ? `${keyboardHeight}px` : "0px"
-        );
-      };
+    // 👇 browser already thoda margin deta hai, isliye clamp
+    const adjusted =
+      keyboardHeight > 0 ? Math.max(0, keyboardHeight - 40) : 0;
 
-      window.visualViewport?.addEventListener("resize", updateKeyboardOffset);
+    document.documentElement.style.setProperty(
+      "--keyboard-offset",
+      `${adjusted}px`
+    );
+  };
 
-      return () => {
-        window.visualViewport?.removeEventListener(
-          "resize",
-          updateKeyboardOffset
-        );
-      };
-    }, []);
+  window.visualViewport.addEventListener("resize", updateKeyboardOffset);
+  window.visualViewport.addEventListener("scroll", updateKeyboardOffset);
+
+  return () => {
+    window.visualViewport.removeEventListener("resize", updateKeyboardOffset);
+    window.visualViewport.removeEventListener("scroll", updateKeyboardOffset);
+  };
+}, []);
 
     const addItem = (value) => {
         setItems((prev) => [...prev, value]);
