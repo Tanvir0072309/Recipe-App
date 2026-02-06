@@ -30,12 +30,7 @@ export function RecipeCTA({
                             Cancel
                         </button>
 
-                        <button
-                            className="btn-import"
-                            onClick={onImportRecipe}
-                        >
-                            Import
-                        </button>
+                      
                     </>
                 )}
             </div>
