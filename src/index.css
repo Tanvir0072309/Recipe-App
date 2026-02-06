@@ -170,7 +170,7 @@ li {
   left: 50%;
   transform: translateX(-50%);
 
-  bottom: calc(16px + var(--keyboard-offset));
+  bottom: calc(10px + var(--keyboard-offset));
   transition: bottom 0.25s ease;
 
   width: min(92%, 560px);
