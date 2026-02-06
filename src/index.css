@@ -251,3 +251,9 @@ li {
     padding: 0 16px;
   }
 }
+
+.main-content {
+  padding-bottom: 260px; 
+  /* floating input + CTA + thoda breathing space */
+}
+
