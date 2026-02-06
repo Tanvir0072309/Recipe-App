@@ -59,6 +59,20 @@ ul {
 li {
   padding: 6px 0;
 }
+.recipe-output {
+  margin: 32px auto;         
+  padding: 0 24px;            
+  max-width: 900px;          
+}
+
+.recipe-text {
+  background: #ffffff;
+  padding: 20px 24px;
+  border-radius: 12px;
+  line-height: 1.6;
+  white-space: pre-wrap;     
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
 
 /* ===== RECIPE CTA ===== */
 .recipe-cta {
@@ -193,7 +207,7 @@ li {
     text-align: center;
   }
 
-  /* 🔥 buttons paas-paas hi rahenge */
+  /* buttons paas-paas hi rahenge */
   .recipe-cta-btn {
     flex-direction: row;
     flex-wrap: wrap;
