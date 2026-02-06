@@ -70,13 +70,14 @@ export default function Main() {
             )}
 
             {recipe && (
-                <div style={{ marginTop: "40px" }}>
-                    <h3>Your Recipe 🍲</h3>
-                    <pre style={{ whiteSpace: "pre-wrap" }}>
-                        {recipe}
-                    </pre>
-                </div>
-            )}
+  <div className="recipe-output">
+    <h3>Your Recipe 🍲</h3>
+    <pre className="recipe-text">
+      {recipe}
+    </pre>
+  </div>
+)}
+
 
             <RecipeInput onAdd={addItem} />
         </>
