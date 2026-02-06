@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { RecipeInput } from "./RecipeInput";
 import { RecipeCTA } from "./RecipeCTA";
 import { getRecipeFromAI } from "../ai/aiService";
@@ -7,6 +7,30 @@ export default function Main() {
     const [items, setItems] = useState([]);
     const [recipe, setRecipe] = useState("");
     const [loading, setLoading] = useState(false);
+
+    // 🔥 KEYBOARD AWARE FLOATING INPUT
+    useEffect(() => {
+      const updateKeyboardOffset = () => {
+        if (!window.visualViewport) return;
+
+        const keyboardHeight =
+          window.innerHeight - window.visualViewport.height;
+
+        document.documentElement.style.setProperty(
+          "--keyboard-offset",
+          keyboardHeight > 0 ? `${keyboardHeight}px` : "0px"
+        );
+      };
+
+      window.visualViewport?.addEventListener("resize", updateKeyboardOffset);
+
+      return () => {
+        window.visualViewport?.removeEventListener(
+          "resize",
+          updateKeyboardOffset
+        );
+      };
+    }, []);
 
     const addItem = (value) => {
         setItems((prev) => [...prev, value]);
@@ -33,32 +57,28 @@ export default function Main() {
         setLoading(false);
     };
 
-    // 🔥 यही MAIN CANCEL LOGIC
     const handleCancelRecipe = () => {
-        setItems([]);     // ingredients clear
-        setRecipe("");    // recipe clear
+        setItems([]);
+        setRecipe("");
         setLoading(false);
     };
 
-    // optional: import logic
     const handleImportRecipe = async () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
         await new Promise(r => setTimeout(r, 400));
-        window.print(); // screenshot / save
+        window.print();
     };
 
     return (
         <>
             <div className="ingredients-box">
-  <h3>List of Ingredients ({items.length})</h3>
-
-  <ul className="ingredients-list">
-    {items.map((item, i) => (
-      <li key={i}>{item}</li>
-    ))}
-  </ul>
-</div>
-
+                <h3>List of Ingredients ({items.length})</h3>
+                <ul className="ingredients-list">
+                    {items.map((item, i) => (
+                        <li key={i}>{item}</li>
+                    ))}
+                </ul>
+            </div>
 
             {items.length >= 4 && (
                 <RecipeCTA
@@ -71,14 +91,11 @@ export default function Main() {
             )}
 
             {recipe && (
-  <div className="recipe-output">
-    <h3>Your Recipe 🍲</h3>
-    <pre className="recipe-text">
-      {recipe}
-    </pre>
-  </div>
-)}
-
+                <div className="recipe-output">
+                    <h3>Your Recipe 🍲</h3>
+                    <pre className="recipe-text">{recipe}</pre>
+                </div>
+            )}
 
             <RecipeInput onAdd={addItem} />
         </>
