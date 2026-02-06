@@ -166,12 +166,12 @@ li {
 }
 
 .floating-input {
-  position: fixed;
+   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-
-  bottom: calc(10px + var(--keyboard-offset));
+  bottom: calc(16px + var(--keyboard-offset));
   transition: bottom 0.25s ease;
+  z-index: 1000;
 
   width: min(92%, 560px);
   height: 56px;
@@ -182,6 +182,13 @@ li {
   padding: 0 10px 0 18px;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
   z-index: 1000;
+}
+
+
+
+.recipe-cta {
+  bottom: calc(96px + var(--keyboard-offset));
+  transition: bottom 0.25s ease;
 }
 
 
