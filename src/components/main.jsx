@@ -49,15 +49,16 @@ export default function Main() {
 
     return (
         <>
-            {items.length > 0 && (
-                <h3>List of Ingredients ({items.length})</h3>
-            )}
+            <div className="ingredients-box">
+  <h3>List of Ingredients ({items.length})</h3>
 
-            <ul>
-                {items.map((item, i) => (
-                    <li key={i}>{item}</li>
-                ))}
-            </ul>
+  <ul className="ingredients-list">
+    {items.map((item, i) => (
+      <li key={i}>{item}</li>
+    ))}
+  </ul>
+</div>
+
 
             {items.length >= 4 && (
                 <RecipeCTA
