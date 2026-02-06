@@ -160,26 +160,30 @@ li {
 }
 
 /* ===== FLOATING INPUT ===== */
+/* default keyboard closed */
+:root {
+  --keyboard-offset: 0px;
+}
+
 .floating-input {
   position: fixed;
-  bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
 
+  bottom: calc(16px + var(--keyboard-offset));
+  transition: bottom 0.25s ease;
+
   width: min(92%, 560px);
   height: 56px;
-
   background: #ffffff;
-  border: 1px solid #e5e7eb;
   border-radius: 999px;
-
   display: flex;
   align-items: center;
   padding: 0 10px 0 18px;
-
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-  z-index: 100;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
 }
+
 
 .floating-input input {
   flex: 1;
